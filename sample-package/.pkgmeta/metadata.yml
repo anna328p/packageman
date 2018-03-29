@@ -1,7 +1,11 @@
 name: sample-package
 description: Sample package for testing the package manager
+architecture: x86_64
+license: cc0
 version: 1.0.0
 depends:
 author: dkudriavtsev
 pre_install: scripts/test-pre.sh
 post_install: scripts/test-post.sh
+files: files.lst
+dirs: dirs.lst
