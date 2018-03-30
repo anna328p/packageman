@@ -59,9 +59,9 @@ loop do
 				client.puts "HTTP/1.0 404 Not Found"
 				client.puts "Date: #{Date.new.strftime "%a, %d %b %Y %H:%M:%S %Z"}"
 				client.puts "Server: dkudriavtsev's SimpleHTTPServer v0.1"
-				client.puts "Content-Type: text/html"
-				client.puts "Content-Length: #{notfound.size}"
 				unless head
+					client.puts "Content-Type: text/html"
+					client.puts "Content-Length: #{notfound.size}"
 					client.puts
 					client.puts notfound
 				end
