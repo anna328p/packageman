@@ -1,0 +1,3 @@
+!_TAG_FILE_SORTED	2	/0=unsorted, 1=sorted, 2=foldcase/
+File	/home/dmitry/work/packageman/SimpleHTTPServer.rb	/^class File$/;"	c	language:Ruby
+mime_type	/home/dmitry/work/packageman/SimpleHTTPServer.rb	/^	def mime_type$/;"	f	language:Ruby	class:File
