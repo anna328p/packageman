@@ -43,28 +43,27 @@ loop do
 					file_found = false
 				end
 
-				if file_found
-					f = File.open file, 'r'
-					client.puts "HTTP/1.0 200 OK"
-					client.puts "Date: #{Date.new.strftime "%a, %d %b %Y %H:%M:%S %Z"}"
-					client.puts "Server: dkudriavtsev's SimpleHTTPServer v0.1"
-					client.puts "Content-Type: #{f.mime_type}"
-					client.puts "Content-Length: #{size}"
-					unless head
-						client.puts
-						client.puts f.read
-					end
-					f.close
-				else
-					client.puts "HTTP/1.0 404 Not Found"
-					unless head
-						client.puts "Date: #{Date.new.strftime "%a, %d %b %Y %H:%M:%S %Z"}"
-						client.puts "Server: dkudriavtsev's SimpleHTTPServer v0.1"
-						client.puts "Content-Type: text/html"
-						client.puts "Content-Length: #{notfound.size}"
-						client.puts
-						client.puts notfound
-					end
+			if file_found
+				f = File.open file, 'r'
+				client.puts "HTTP/1.0 200 OK"
+				client.puts "Date: #{Date.new.strftime "%a, %d %b %Y %H:%M:%S %Z"}"
+				client.puts "Server: dkudriavtsev's SimpleHTTPServer v0.1"
+				client.puts "Content-Type: #{f.mime_type}"
+				client.puts "Content-Length: #{size}"
+				unless head
+					client.puts
+					client.puts f.read
+				end
+				f.close
+			else
+				client.puts "HTTP/1.0 404 Not Found"
+				client.puts "Date: #{Date.new.strftime "%a, %d %b %Y %H:%M:%S %Z"}"
+				client.puts "Server: dkudriavtsev's SimpleHTTPServer v0.1"
+				unless head
+					client.puts "Content-Type: text/html"
+					client.puts "Content-Length: #{notfound.size}"
+					client.puts
+					client.puts notfound
 				end
 			else
 				client.puts "HTTP/1.0 500 Internal Server Error"
